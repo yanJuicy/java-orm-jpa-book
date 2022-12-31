@@ -4,7 +4,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class JpaMain {
@@ -31,7 +30,6 @@ public class JpaMain {
 	}
 
 	private static void logic(EntityManager em) {
-
 		String id = "id1";
 		Member member = new Member();
 		member.setId(id);
@@ -50,5 +48,10 @@ public class JpaMain {
 		System.out.println("members.size() = " + members.size());
 
 		em.remove(member);
+
+		Board board = new Board();
+		em.persist(board);
+		System.out.println("board.id = " + board.getId());
+
 	}
 }
